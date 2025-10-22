@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "my-expo-app",
-    "slug": "my-expo-app",
+    "name": "Pwani Innovation Week",
+    "slug": "pwani-innovation-week",
     "version": "1.0.0",
 
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/piw_favicon.png"
     },
 
     "experiments": {
@@ -15,7 +15,7 @@
     "plugins": [],
 
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/piw_favicon.png",
 
     "userInterfaceStyle": "light",
 
@@ -30,7 +30,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/piw_favicon.png",
         "backgroundColor": "#ffffff"
       }
     }
