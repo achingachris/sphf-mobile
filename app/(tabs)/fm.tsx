@@ -1,16 +1,28 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
+import { usePlayer } from '@/components/AudioPlayer';
 import { Text as ThemedText, View as ThemedView } from '@/components/Themed';
+import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 
 export default function FmScreen() {
+  const { isPlaying, toggle, stop } = usePlayer();
+
   return (
     <ThemedView style={styles.container}>
       <ThemedText style={styles.title}>Swahilipot FM</ThemedText>
       <ThemedText style={styles.subtitle}>Live coastal stories, music, and culture.</ThemedText>
       <View style={styles.card}>
         <ThemedText style={styles.cardTitle}>Now Playing</ThemedText>
-        <ThemedText style={styles.cardBody}>Hook up stream controls here.</ThemedText>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <TouchableOpacity onPress={() => toggle(undefined, 'Swahilipot FM')} style={styles.playButton} accessibilityLabel="Play or pause stream">
+            <Ionicons name={isPlaying ? 'pause' : 'play'} size={20} color="#fff" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => stop()} style={[styles.playButton, styles.stopButton]} accessibilityLabel="Stop stream">
+            <Ionicons name="stop" size={18} color="#fff" />
+          </TouchableOpacity>
+          <ThemedText style={styles.cardBody}>{isPlaying ? 'Live — Swahilipot FM' : 'Stopped'}</ThemedText>
+        </View>
       </View>
       <View style={styles.card}>
         <ThemedText style={styles.cardTitle}>Shows</ThemedText>
